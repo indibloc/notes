@@ -4,7 +4,7 @@
 :tags: Bockchain, Ethereum, supply-chain
 :toc:
 
-In Indian Agriculture ecosystem, the farmer is at the receiving end of all the commercial and political interests acting on the farm economy. They neither have any control over the inputs nor outputs (pricing the produce). Also, they heavily depend upon the weather to their production outcome. 
+In Indian Agriculture ecosystem, the farmer is at the receiving end of all the commercial and political interests acting on the farm economy. They neither have any control over the inputs nor outputs (pricing the produce). Also, they heavily depend upon the weather for their production outcome. 
 
 While the Indian Government has high aspirations of doubling the farmers' income. It has also launched many ambitious schemes including National Agriculture Market (eNAM) and Kisan Credit Card; Yet the farmers keep loosing their incomes and lives.
 
@@ -24,6 +24,7 @@ The farm inputs are highly marked up, and marketplace specially the Mandi system
 . Corporate Farms
 . Farm Technology Providers
 . Farm Chemical & Biochemical Producers
+. Testing Labs
 . Seed & Sapling Nursery 
 . Farming Knowledge Providers
 . Logistics companies
@@ -67,4 +68,11 @@ http://indianexpress.com/article/india/india-news-india/agriculture-reform-break
 
 http://www.millenniumpost.in/big-stories/big-stories-251624
 
+.Knowledge Portals
 
+https://www.ipni.org/lsids.html[Life Science Identifiers (LSIDs)]
+
+http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:486336-1
+
+
+https://www.nature.com/articles/s41598-017-01143-2.pdf?origin=ppub[paper: fertilization recommendations based on agronomic efficiency and a sustainable yield index for rice crops (pdf)]
