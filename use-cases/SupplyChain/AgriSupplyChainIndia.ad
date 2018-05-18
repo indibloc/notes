@@ -1,0 +1,70 @@
+= Agri Supply Chain
+:author: Ashish Banerjee, ashish@qzip.in
+:version: 18-may-2018 (WIP)
+:tags: Bockchain, Ethereum, supply-chain
+:toc:
+
+In Indian Agriculture ecosystem, the farmer is at the receiving end of all the commercial and political interests acting on the farm economy. They neither have any control over the inputs nor outputs (pricing the produce). Also, they heavily depend upon the weather to their production outcome. 
+
+While the Indian Government has high aspirations of doubling the farmers' income. It has also launched many ambitious schemes including National Agriculture Market (eNAM) and Kisan Credit Card; Yet the farmers keep loosing their incomes and lives.
+
+Governments by way of loan waivers have made the farmers financially delinquent. Thus, non-government financial institutions stay away from farmers. Thus farmers have to either depend upon government loans (they don't have to pay) or take loans from loan sharks at a huge costs, sometime amounting to 5% per month.
+
+The farm inputs are highly marked up, and marketplace specially the Mandi system is heavily cartelized. The eNAM system is yet to be visible on the ground.   
+
+*STATUS: Work In Progress (WIP)*
+
+== Stake Holders
+
+.Actors
+. Farmers: Primary Producers 
+.. Contract farmers
+.. Land Owners
+. Farm co-operatives
+. Corporate Farms
+. Farm Technology Providers
+. Farm Chemical & Biochemical Producers
+. Seed & Sapling Nursery 
+. Farming Knowledge Providers
+. Logistics companies
+. Food Processors
+. Intermediaries 
+.. Sell to Farm
+.. Buy Farm produce 
+. Marketplaces
+. Regulators
+. Banks and Financing companies 
+
+== Production Stages
+
+.Stages
+. Preproduction
+. Production
+. Post production
+
+=== Market Place
+
+
+== Resources
+
+.Policy and Regulations
+
+http://agricoop.nic.in/doubling-farmers[Doubling of Farmers' Income]
+
+http://niti.gov.in/writereaddata/files/document_publication/DOUBLING%20FARMERS%20INCOME.pdf[Doubling the Farmers' Income: Govt. Policy Paper (PDF)]
+
+http://www.enam.gov.in/NAM/home/index.html[eNAM : National Agriculture Market]
+
+http://www.enam.gov.in/NAM/home/elearning.html[eNAM videos]
+
+.Mandi Cartelization
+
+https://www.businesstoday.in/magazine/cover-story/agriculture-a-revolution-waiting-to-happen-beyond-the-mandis/story/227502.html
+
+https://www.livemint.com/Politics/qoKjCr1L1TTA2pQGiGlr2K/We-need-to-reform-agriculture-markets-in-true-spirit-invit.html
+
+http://indianexpress.com/article/india/india-news-india/agriculture-reform-breaking-the-trader-cartel-2855435/
+
+http://www.millenniumpost.in/big-stories/big-stories-251624
+
+
