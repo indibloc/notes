@@ -1,0 +1,23 @@
+= Annotated Resources
+
+== P2P (Peer to Peer) Social 
+
+.Minds
+
+
+https://www.minds.com[Minds] uses ERC20 Tokens on Ethereum, as of 20th May 2018, it was on the Test Net and not the Main net.
+
+While Minds Social Network strives to reward the contributors and viewers by issuing tokens, and connecting the rewards to fiat currency.
+
+It has Off-chain wallet as well as an On-chain wallet. he off-chain wallet is used to save the Ethereum gas (transaction fees).
+
+Minds is *NOT* a true P2P distributed content platform, but a centralized aggregation driven platform with a user-content rewarding system. Minds, in my view, directly competes with Facebook.com ; What stops Facebook to introduce a reward system similar to That of Minds.com ?
+
+A true P2P Platform should use a distributed CAS (Content Addressable Storage) system like https://ipfs.io[IPFS] or http://swarm-guide.readthedocs.io/en/latest/introduction.html[Ethereum Swarm].
+
+One such example of P2P distributed platform is https://www.openbazaar.org[Open Bazaar]. It uses IPFS as data store and Bitcoin as the Internet of Value.    
+
+https://github.com/Minds[Minds Github home]
+
+https://cdn-assets.minds.com/front/dist/assets/whitepapers/03_27_18_Minds%20Whitepaper%20V0.1.pdf[Minds Whitepaper (pdf)]
+
