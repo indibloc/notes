@@ -44,6 +44,11 @@ The farm inputs are highly marked up, and marketplace specially the Mandi system
 . Post production
 
 === Market Place
+While eNAM attempts to integrate the Mandis and https://en.wikipedia.org/wiki/Agricultural_produce_market_committee[APMC (Agricultural produce market committee)], it does not address the underlying aggregators' cartelization dynamics. Also, it is a bulk procurement information system, and does to address the end-to-end seed-to-food cycle.
+
+We plan to create a decentralized & disaggregated market place, where all stakeholders can securely and transparently trade nationally and Internationally.
+
+== Blockchain Technology
 
 
 == Resources

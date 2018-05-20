@@ -1,5 +1,21 @@
-= docs
+= IndiBloc: Design Notes & Usecases
 
 Wiki documents and other collaterals 
 
 *WORK IN PROGRESS (WIP)*
+
+IndiBloc network will be a cryptographically secured distributed ledger. Its authenticity verified by trusted network consensus operators and auditors.
+
+
+The Public Anonymous Blockchains globally sequence the transactions into blocks. This is necessasy as they all have a native cryptocurrency embedded into its architecture.
+Since, permissioned consortium blockchains deal with fiat currencies, they do not have any real need of a globally sequenced bloc chained ledger. 
+
+Thus the next generation blockchain architectures like https://github.com/corda/corda[Corda], https://dev.iota.org/introduction[IOTA] and https://dev.hashgraph.com/[Hashgraph] are moving away from blockchain towards transaction chaining. even though IOTA has a native cryptocurrency it still has moved away from blockchain.
+ 
+
+Instead of creating blocks of globally sequenced transactions, we are now using IPFS Merkle DAG to chain the transactions. In the first version we are using a Private Ethereum Network for sequencing the Transactions; similar to side chaining concept.
+
+In the next versions of the IndiBloc, we will be leveraging RAFT cluster over IPFS, to build the consensus. We are Modeling upon the https://github.com/ipfs/ipfs-cluster/tree/master/consensus/raft[IPFS Cluster] design.    
+
+We will be open sourcing the code once we reach a stable milestone with a couple of use-cases working. 
+
