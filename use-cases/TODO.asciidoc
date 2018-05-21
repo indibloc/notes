@@ -1,0 +1,5 @@
+= TODO List
+
+. Anonymized Data monetization and value sharing among the content generators.
+
+

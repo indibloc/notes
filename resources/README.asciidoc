@@ -2,7 +2,21 @@
 
 == P2P (Peer to Peer) Social 
 
-.Minds
+This https://www.activistpost.com/2018/03/10-decentralized-social-media-networks-to-use-instead-of-facebook.html[Alternatives to Facebook] article, lists some of the Blockchain enabled social networks.
+
+=== Steem
+
+Steem uses https://github.com/cryptonomex/graphene[graphene] as its underlying Blockchain platform.
+   
+https://steemit.com/faq.html#What_is_Steemit_com[Steem FAQ]
+
+https://www.cryptocoinjudge.com/steem/[Steem – The Tangled Analysis]
+
+https://github.com/steemit/steem[steem github]
+
+https://github.com/steemit/condenser[steem front-end source]
+
+=== Minds
 
 
 https://www.minds.com[Minds] uses ERC20 Tokens on Ethereum, as of 20th May 2018, it was on the Test Net and not the Main net.
@@ -20,4 +34,16 @@ One such example of P2P distributed platform is https://www.openbazaar.org[Open 
 https://github.com/Minds[Minds Github home]
 
 https://cdn-assets.minds.com/front/dist/assets/whitepapers/03_27_18_Minds%20Whitepaper%20V0.1.pdf[Minds Whitepaper (pdf)]
+
+== Zero Knowledge Proof
+
+https://z.cash/technology/zksnarks.html[What are zk-SNARKs?]
+
+https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell/[zkSNARKs in a nutshell]
+
+https://eprint.iacr.org/2015/584.pdf[Paper (pdf) How to Securely Prolong the Computational Bindingness of Pedersen Commitments]
+
+https://github.com/ElementsProject/secp256k1-zkp[github code: Experimental fork of libsecp256k1 with support for pedersen commitments and range proofs.]
+
+
 
