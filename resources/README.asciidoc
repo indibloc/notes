@@ -45,5 +45,11 @@ https://eprint.iacr.org/2015/584.pdf[Paper (pdf) How to Securely Prolong the Com
 
 https://github.com/ElementsProject/secp256k1-zkp[github code: Experimental fork of libsecp256k1 with support for pedersen commitments and range proofs.]
 
+== Content Development Tools
 
+https://github.com/russross/blackfriday
+
+https://github.com/gohugoio/hugo
+
+https://github.com/googlecodelabs
 

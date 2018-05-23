@@ -1,0 +1,7 @@
+= P2P Libs
+
+https://github.com/ethereum/wiki/wiki/ÐΞVp2p-Wire-Protocol
+
+https://github.com/libp2p/go-libp2p
+
+https://github.com/libp2p/go-libp2p-raft

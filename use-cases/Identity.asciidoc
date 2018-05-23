@@ -1,0 +1,18 @@
+= Pseudonomous Identity on Blockchain 
+:author: Ashish Banerjee, ashish@qzip.in
+:version: 21-may-2018 (WIP)
+:tags: Bockchain, Ethereum, identity
+:toc:
+
+This document deals with Pseudonomous Identity and KYC (Know your Customer) information sharing for payments and Business transaction, in Indian context.
+
+
+== Resources
+
+https://medium.com/uport/different-approaches-to-ethereum-identity-standards-a09488347c87
+
+https://github.com/ethereum/EIPs/issues/725
+
+https://github.com/ethereum/EIPs/issues/735
+
+https://en.wikipedia.org/wiki/Personally_identifiable_information#European_Union

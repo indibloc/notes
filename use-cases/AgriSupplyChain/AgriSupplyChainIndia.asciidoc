@@ -81,3 +81,21 @@ http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:486336-1
 
 
 https://www.nature.com/articles/s41598-017-01143-2.pdf?origin=ppub[paper: fertilization recommendations based on agronomic efficiency and a sustainable yield index for rice crops (pdf)]
+
+
+.ERP 
+
+https://erpnext.com/agriculture[Open Source ERP Agriculture]
+
+.Ethereum
+https://github.com/ethanbennett/sourcery
+
+https://github.com/AtrauraBlockchain/scts
+
+
+https://blog.codecentric.de/en/2018/01/implementing-smart-contracts/
+
+http://www.gazelle.in/BCSCM.pdf
+
+
+

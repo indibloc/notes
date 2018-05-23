@@ -2,4 +2,6 @@
 
 . Anonymized Data monetization and value sharing among the content generators.
 
+. Pseudonomous Identity on Blockchain 
 
+ 

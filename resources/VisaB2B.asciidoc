@@ -1,0 +1,11 @@
+= Visa B2B
+
+https://investor.visa.com/news/news-details/2016/Visa-Introduces-International-B2B-Payment-Solution-Built-on-Chains-Blockchain-Technology/default.aspx
+
+
+
+
+
+https://github.com/chain/txvm
+
+

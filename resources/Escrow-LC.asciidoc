@@ -1,0 +1,107 @@
+= Escrow and Letter of Credit (LC)
+
+
+== Resources
+
+.LC
+https://www.arb.ca.gov/cc/capandtrade/auction/forms/example_loc.pdf
+
+https://www.key.com/pdf/sampleloc.pdf
+
+https://en.wikipedia.org/wiki/Letter_of_credit
+
+http://www.fd.unl.pt/docentes_docs/ma/mhb_MA_24705.pdf[ICC Uniform Customs and Practice for Documentary Credits (UCP 600)]
+
+https://www.export.gov/article?id=Letters-of-Credit-and-Documentary-Collection
+
+.Escrow.com
+
+Q: Is there any country specific restriction ?
+
+== Crypto Escrow
+
+http://cfe.cboe.com/cfe-products/xbt-cboe-bitcoin-futures
+
+http://cfe.cboe.com/products/bitcoin-qrg.pdf
+
+http://cfe.cboe.com/cfe-products/xbt-cboe-bitcoin-futures/contract-specifications?utm_campaign=bitcoin-futures&utm_medium=guide&utm_source=bitcoin-guide&utm_content=cfe-contract[CBOE: XBT Futures Specifications]
+
+https://en.bitcoin.it/wiki/API_reference_(JSON-RPC)#Go
+
+https://github.com/btcsuite/btcd
+
+https://github.com/starius/bitcoin-escrow-article/blob/master/article_en.md
+
+https://medium.com/sellbitbuy/trusted-bitcoin-escrow-script-d4b499dd093c
+
+https://en.bitcoin.it/wiki/Script
+
+https://bitcoin.org/en/developer-guide#escrow-and-arbitration
+
+https://www.dfs.ny.gov/legal/regulations/bitlicense_reg_framework.htm
+
+https://www.dfs.ny.gov/banking/virtualcurrency.htm
+
+https://www.dfs.ny.gov/about/press/pr1605051.htm[GOVERNOR CUOMO ANNOUNCES APPROVAL OF FIRST U.S.-BASED ETHEREUM EXCHANGE, CREATED AND OPERATED IN NEW YORK]
+
+https://gemini.com
+
+https://bitcoinmagazine.com/articles/cryptocurrency-regulation-2018-where-world-stands-right-now/
+
+== Open Banking
+
+https://github.com/apigee/openbank
+
+
+https://psd2-api.openbankproject.com/
+
+https://openbankproject.com
+
+https://openbanking.atlassian.net/wiki/spaces/DZ/pages/120291503/Open+Data+API+Specifications+v2.2.0
+
+https://github.com/OpenBankProject
+
+.Open banking UK
+https://www.openbanking.org.uk
+
+https://github.com/OpenBankingUK
+
+https://github.com/OpenBankingUK/reference-applications/blob/master/tpp-reference-applications.md
+
+https://github.com/OpenBankingUK/tpp-reference-client
+
+https://github.com/OpenBankingUK/tpp-reference-server
+
+.PSD2
+
+https://en.wikipedia.org/wiki/Payment_Services_Directive
+
+http://europa.eu/rapid/press-release_MEMO-15-5793_en.htm?locale=en
+
+"Until now, entering the market of payments was complicated for TPPs, as many barriers were preventing them from offering their solutions on a large scale and in different Member States. With these barriers removed, more competition is expected with new players entering new markets and offering cheaper solutions for payments to more and more consumers throughout Europe. "
+
+https://ec.europa.eu/info/business-economy-euro/banking-and-finance/consumer-finance-and-payments/payment-services/e-money_en
+
+http://www.europarl.europa.eu/RegData/etudes/BRIE/2017/607260/EPRS_BRI%282017%29607260_EN.pdf[4AMLD]
+
+http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=COM:2016:0450:FIN%20
+
+https://www.europeanpaymentscouncil.eu/sites/default/files/infographic/2018-02/EPC%20infographic%20on%20the%20RTS%20on%20strong%20customer%20authentication_February%202018.pdf
+
+https://ukcryptocurrency.com/regulation/eu-regulation/
+
+.Articles
+
+https://www2.deloitte.com/content/dam/Deloitte/cz/Documents/financial-services/cz-open-banking-and-psd2.pdf
+
+http://www.wired.co.uk/article/open-banking-cma-psd2-explained
+
+https://medium.freecodecamp.org/sick-of-your-banks-lame-app-open-banking-promises-more-9770cad2448c
+
+=== Multichain Proof of Ownership
+
+The Fiat to  Fiat exchange for cross border trade, with Cryptocurrency colatral.
+
+A mutlisig escrow is created on Bitcoin as a collatral to the Fiat to Fiat cross border trade.
+
+An escrow on a 
