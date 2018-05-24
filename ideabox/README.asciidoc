@@ -1,0 +1,9 @@
+= Idea Box: Ideas Incubation 
+
+Idea Box contains the ideas in incubation within the IndiBloc community
+
+.Active List
+. OpnLance: New Age Gig Economy  
+. EthBzr: Ethereum & Swarm Based https://github.com/openbazaar[OpenBazaar]
+. OpnBnk : https://github.com/OpenBankProject[Open Banking] compliant Blockchain as a service for Fiat Wallets.
+
