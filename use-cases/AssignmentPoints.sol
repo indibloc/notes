@@ -2,7 +2,7 @@ pragma solidity ^0.4.24;
 
 
 /** @title Assigns Points to the IndiBloc S2018 cohort. 
-    version v0.01 - 31-may-2018
+    version v0.02 - 31-may-2018
 */
 contract AssignPoints {
     struct Assignment {
@@ -90,7 +90,7 @@ contract AssignPoints {
     }
     function assess(address cohort, uint  assignmentId, uint    points) public {
         require(isLive, "SprintUp accessement closed");
-        require(isAssignmentValid(assignmentId), "Invalid assignment");
+        require(isPointsValid(assignmentId, points), "Invalid assignment or points");
         require(isMentor(msg.sender), "Not a mentor");
         require(!assessed(msg.sender, cohort, assignmentId), "already accessed");
         Assessment memory ax  =  Assessment(
@@ -135,6 +135,16 @@ contract AssignPoints {
         }
         return false;   
     }
+    function isPointsValid(uint assignmentId, uint points)  public view returns (bool) {
+        if(!isLive)
+           return false;
+        for(uint i=0; i < assignments.length; i++) {
+            if(assignments[i].id == assignmentId && 
+               assignments[i].isLive && assignments[i].maxPoints >= points )
+            return true;
+        }
+        return false;       
+        
+    }
 }
-
 

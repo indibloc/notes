@@ -1,0 +1,32 @@
+= Proof-of-concept for Gold Backed Cryptocurrency Technology Demonstrator
+
+Here is a gist of the proposal for Proof-of-concept (POC) for Gold Backed Cryptocurrency Technology Demonstrator
+
+== Background
+We Indians are obsessed with gold, while RBI (Reserve Bank of India) holds 557 tonne gold, we citizens hold 20,000 tonne gold! Must of this gold is in form of jewelry. Indian women hold jewelry as a form personal social security, in rare financial crisis, she uses this as a collateral for taking loans. Many, middle to low middle class families gives a small amount from the household savings, to the jeweler, and buys virtual units of gold. After a threshold, she gets it converted to gold ornaments. 
+
+Savings in form of gold ornaments is highly unproductive, as it shaves off up to 30% as making & conversion charges.
+
+Post demonetization, Indian citizens are more aware of Digital transactions and use of e-wallets. Gold is available as an investment instrument in dematerialized form. 
+
+A minimum quantity available for buying is 1 gm @ ₹3000/gm. This is affordable, for a family sustaining themselves at ₹150/day. 
+
+Thus the bottom of economic pyramid are excluded form this investment opportunity. This solution will empower the under-privileged to buy and save in gold in very small quantities, event ₹1 at a time. 
+
+https://blog.qzip.in/gold-backed-cryptocurrency-805cf6e0f5e5[Read more about the background in this blog]
+
+== Project
+We plan to have two implementations of the POC.
+
+.Platforms
+. Ethereum 
+. Hyperledger Fabric
+
+We, the https://www.meetup.com/Noida-Blockchain-Technology/[Noida Blockchain Technology & Applications Meetup] will provide guidance and technical help to implement the projects in Open Source.
+
+The projects should be licensed as https://opensource.org/licenses/UPL[The Universal Permissive License (UPL), Version 1.0] and hosted in https://github.com/[Github].
+
+== Motivation
+Successful projects will get certification from Software Companies, also, the shortlisted teams or individuals will be given an opportunity to pitch their ideas to venture funds or potential employers (if they so choose).
+
+ 
