@@ -2,6 +2,13 @@
 
 Idea Box contains the ideas in incubation within the IndiBloc community
 
+Ideas are born in minds, then cooked in our group. Once it takes some shape we give it a code name and list it here.
+Once a Level 0 document is created, it is placed here. A group within the community may decide to work on it.
+
+If they reach a milestone, we will create a project in github. If the idea goes stale or goes inactive, we archive the git project, and move the documents to the 'freezer' directory.
+
+If the idea gets to an alpha stage the documents are moved to the `wiki` pages of IndiBloc doc. 
+
 .Active List
 . OpnLance: New Age Gig Economy  
 . EthBzr: Ethereum & Swarm Based https://github.com/openbazaar[OpenBazaar]

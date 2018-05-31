@@ -1,5 +1,11 @@
 = Annotated Resources
 
+== Ethereum
+
+https://hackernoon.com/the-ethereum-blockchain-size-has-exceeded-1tb-and-yes-its-an-issue-2b650b5f4f62[Ethereum Scaling issues blog]
+
+
+
 == P2P (Peer to Peer) Social 
 
 This https://www.activistpost.com/2018/03/10-decentralized-social-media-networks-to-use-instead-of-facebook.html[Alternatives to Facebook] article, lists some of the Blockchain enabled social networks.

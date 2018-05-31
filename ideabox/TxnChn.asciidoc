@@ -1,0 +1,13 @@
+= TxnChn : Transaction Chain 
+
+*Work in Progress (WIP)*
+
+
+= Resources
+
+=== DevP2P 
+
+https://github.com/jpmorganchase/quorum/tree/master/raft
+
+https://github.com/ethereum/wiki/wiki/Chain-Fibers-Redux
+

@@ -1,0 +1,103 @@
+== Zero Knowledge Proof
+
+https://github.com/jpmorganchase/quorum/wiki/ZSL[ZSL Proof of Concept]
+
+"ZSL (zero-knowledge security layer) is a protocol designed by the team behind Zcash, that leverages zk-SNARKS to enable the transfer of digital assets on a distributed ledger, without revealing any information about the Sender, Recipient, or the quantity of assets that are being transferred."
+
+
+https://github.com/jpmorganchase/zsl-q/blob/master/docs/ZSL-Quorum-POC_TDD_v1.3pub.pdf[ZSL Technical Design (pdf)]
+
+https://eprint.iacr.org/2012/215.pdf[Quadratic Span Programs and Succinct NIZKs without PCPs (pdf)]
+
+https://z.cash/technology/zksnarks.html[What are zk-SNARKs ( “Zero-Knowledge Succinct Non-Interactive Argument of Knowledge,”)? *Must Read*]
+
+
+
+https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof[Non-interactive zero-knowledge proof]
+
+https://en.wikipedia.org/wiki/Common_reference_string_model[Common reference string model]
+
+https://en.wikipedia.org/wiki/Circuit_satisfiability_problem[Circuit satisfiability problem (CSAT)]
+
+
+https://z.cash/blog/generating-zcash-parameters.html[Zcash Parameters And How They Will Be Generated]
+
+https://github.com/zcash/mpc[git: multi-party computation protocol for the key-generation step of Pinocchio zkSNARKs]
+
+https://github.com/zcash/zips/blob/master/protocol/protocol.pdf[zcash protol (pdf)]
+
+== Courses
+
+https://ocw.mit.edu/courses/find-by-topic/#cat=engineering&subcat=computerscience&spec=cryptography[MIT OCW Cryptography]
+
+http://www.eecs.wsu.edu/~cook/aa/lectures/l27.pdf[CSAT lecture (pdf)]
+
+https://www.youtube.com/watch?v=ziViLYrf1Ak[YouTube: MIT 6.890 Algorithmic Lower Bounds: Fun with Hardness Proofs,]
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-890-algorithmic-lower-bounds-fun-with-hardness-proofs-fall-2014/[Algorithmic Lower Bounds: Fun with Hardness Proofs]
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-897-selected-topics-in-cryptography-spring-2004/[Selected Topics in Cryptography]
+
+https://ocw.mit.edu/courses/mathematics/18-783-elliptic-curves-spring-2017/[Elliptic Curves]
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-875-cryptography-and-cryptanalysis-spring-2005/[Cryptography and Cryptanalysis]
+
+https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-876j-advanced-topics-in-cryptography-spring-2003/[Advanced Topics in Cryptography]
+
+https://www.coursera.org/learn/advanced-algorithms-and-complexity/lecture/CeAu0/circuit-sat-to-sat
+
+
+
+
+== Segwit : Cross Chain Atomic Swaps 
+
+https://blog.lightning.engineering/announcement/2017/11/16/ln-swap.html[litecoin 2 bitcoin atomic swap]
+
+https://en.bitcoin.it/wiki/Atomic_cross-chain_trading#Opcodes_and_altchain_special_rules
+
+https://en.bitcoin.it/wiki/Payment_channels[Micropayment Channel]
+
+https://support.gatehub.net/hc/en-us/articles/115003585425-How-are-Ripple-and-Bitcoin-Ethereum-transactions-connected-[How are Ripple and Bitcoin/Ethereum transactions connected?]
+
+
+https://github.com/jpmorganchase/quorum/wiki/ZSL[ZSL Proof of Concept]
+
+
+PKI Hash Signature verification is a common example for zero knowledge proof.
+
+== homomorphic encryption
+
+https://github.com/topics/homomorphic-encryption[git topics for homomorphic-encryption]
+
+https://github.com/radicalrafi/gomorph[git: go Paillier Cryptosystem]
+
+https://en.wikipedia.org/wiki/Homomorphic_encryption[wiki: Homomorphic Encryption]
+
+https://tfhe.github.io/tfhe/[TFHE: Fast Fully Homomorphic Encryption over the Torus]
+
+https://github.com/shaih/HElib[Git C++ HE Lib  "assembly language for HE"]
+
+https://www.wikiwand.com/en/Paillier_cryptosystem[Paillier cryptosystem]
+
+https://www.youtube.com/watch?v=NBO7t_NVvCc[Homomorphic encryption simple youtube video]
+
+
+== ZCash
+
+https://blog.z.cash/zsl/[ZSL: zk-SNARKs for the Enterprise]
+
+https://z.cash/technology/zksnarks.html[ZCash zk-SNARKs ]
+
+https://blog.z.cash/zcash-private-transactions/[How Transactions Between Shielded Addresses Work]
+
+https://github.com/zcash/zips/blob/master/protocol/protocol.pdf[ZCash Protocol (pdf)]
+
+https://github.com/BTCPrivate/BitcoinPrivate[Bitcoin Private (zcash clone)]
+
+https://github.com/z-classic/zclassic[zcash fork]
+
+https://hackernoon.com/how-private-are-privacy-coins-a-closer-look-at-zcash-and-zclassics-blockchains-32dae60d5b9f[How Private Are Privacy Coins: A Closer Look at Zcash and Zclassic’s Blockchains]
+
+
+
+
