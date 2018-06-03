@@ -1,0 +1,109 @@
+= EthBzr: Ethereum Bazaar
+:author: Ashish Banerjee, ashish@qzip.in
+:version: 03-jun-2018 (WIP)
+:tags: Bockchain, Ethereum, commerce
+:toc:
+
+This document outlines the overview of the `EthBzr`, a distributed B2B (Business to Business) commerce marketplace on Ethereum platform.
+
+Though this can run on both public and consortium network mode. We are implementing it on a consortium Ethereum network, to comply with Indian regulations.
+
+The marketplace is designed to cater to both goods and services.
+
+== Introduction
+`EthBzr` is conceptualized as a https://en.wikipedia.org/wiki/Decentralized_application[ĐApp] on Ethereum platform, running over a public and consortium network mode. 
+
+The concomitant data, like human readable legal contracts, are saved in a CAS (Content Addressable Storage).
+The content can be optionally be encrypted. 
+
+.The supported CAS are:  
+. IPFS
+. Ethereum Swarm
+. Couch DB
+
+
+*STATUS: Work In Progress (WIP)*
+
+== Regulatory Compliance
+Like all democratic countries Indian laws are complex and multiple agencies are there with various jurisdctions which a blockchain network needs to comply with. 
+
+Prominent among them are: 
+
+. https://rbi.org.in/Scripts/OccasionalPublications.aspx?head=Reserve%20Bank%20of%20India%20Act[RBI Act]:   bars cryptocurrency minting
+. https://www.sebi.gov.in/sebiweb/home/HomeAction.do?doListing=yes&sid=1&ssid=1&smid=0[SEBI Act]:   bars ICO (Initial Coin Offering) & creation of cryptocurrency exchanges.
+. https://m.rbi.org.in/scripts/BS_ViewMasCirculardetails.aspx?id=8179[Anti-Money Laundering (AML)] standards/Combating of Financing of Terrorism (CFT) rules.
+. https://www.rbi.org.in/scripts/fema.aspx[Foreign Exchange Management Act]
+
+We spent more than 9 months, researching, consulting with legal experts and Charted Accountants to help us navigate the Legal Maze.
+
+we can now confidently summarize our findings in one sentence:
+
+**Blockchain is yet another Information Technology (IT). You must comply with the laws of the land.**
+
+The Blockchain  needs to be permission-ed network for KYC (Know Your Customers),AML and CFT.
+
+Thus for the IndiBloc Blockchain network, we have used Ethereum private network with PoA (Proof of Authority) as the consensus algorithm.
+
+
+=== Nodal Account
+RBI issued a guidelines https://www.rbi.org.in/scripts/NotificationUser.aspx?Mode=0&Id=5379[directions for opening and operation of Accounts and settlement of payments for electronic payment transactions involving intermediaries, on 24 November 2009], that applies to e-commerce marketplaces. 
+
+Thus all marketplaces like Amazon & Flop Cart are required maintain an escrow account with a Bank. Though RBI left it to the banks to name this account; most banks call it "Nodal Account", since RBI had used the phrase "Nodal Bank" in it's directive.
+
+Thus from our implementation perspective, the Nodal bank's account is the primary storage of value and NOT the cryptocurrency nor any crypto-tokens. This value is reflected in Blockchain network as https://en.wikipedia.org/wiki/ERC20[ERC20] tokens issuance.
+  
+
+=== Crypto Tokens
+The crypto-tokens that are inherent to the Blockchain network architecture, is required for protecting the network and service fee distribution.
+
+As an architecture choice, we have used Ethereum private network with PoA (Proof of Authority) as the consensus algorithm.
+In this mode, the tokens are minted once, and attached to a set of pre-funded accounts. These accounts must responsibly distribute the tokens so that only KYC compliant participants only can get access to the network resources. 
+ 
+
+== Actors & Roles
+The participants are called Actors with various Roles.
+
+In the B2B network, we assume that all the participants are IT enabled and have ability to manage crypto key pairs.
+
+Those users who cannot manage key pairs or lack IT infrastructure, transact through a trusted intermediary, like a portal.
+
+.Roles  
+. Administrators (admin)
+. Regulators
+. Buyers
+. Sellers
+. Arbitrators
+
+== Business Cycles
+
+The life cycle consists of the following high level processes:
+
+. Partner Lifecycle
+.. Off boarding/On boarding
+.. Fees Accounting
+. Product Lifecycle (Publish to Quote)
+.. Product Specification cycle
+.. Offer and Quote cycle
+. Transactions (Order to Cash)
+
+=== Processes
+
+=== Publish to Quote
+https://www.tmforum.org/collaboration/catalog-management-project/[Catalog Management  - TM Forum]
+
+==== Publish Catalog
+
+image::B2B-UC01-PubCat.jpg[]  
+
+==== Offer to Buy & Sell
+
+==== Request for Quote
+
+=== Order to Cash
+
+==== Escrow
+==== Place Order  
+==== Deliver Order
+==== Payment (Cash)
+
+

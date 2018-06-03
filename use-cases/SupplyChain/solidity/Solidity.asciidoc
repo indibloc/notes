@@ -1,0 +1,48 @@
+= Solidity
+
+https://solidity.readthedocs.io/en/v0.4.24/
+
+https://www.bitdegree.org/learn/solidity-function-modifiers/
+
+
+https://www.bitdegree.org/learn/solidity-introduction/
+
+
+https://www.gnupg.org/gph/en/manual/x135.html
+
+
+
+https://medium.com/uport/different-approaches-to-ethereum-identity-standards-a09488347c87[ERC 725: a Proposed Ethereum Identity Standard]
+
+
+https://github.com/ethereum/EIPs/issues/1035[solidity fees less delegated transfer]
+
+----
+ contract Feeless {
+    
+    address internal msgSender;
+    mapping(address => uint256) public nonces;
+    
+    modifier feeless {
+        if (msgSender == address(0)) {
+            msgSender = msg.sender;
+            _;
+            msgSender = address(0);
+        } else {
+            _;
+        }
+    }
+
+    function performFeelessTransaction(address sender, bytes data, uint256 nonce, bytes sig) public payable {
+        bytes memory prefix = "\x19Ethereum Signed Message:\n32";
+        bytes32 hash = keccak256(prefix, keccak256(data, nonce));
+        msgSender = ECRecovery.recover(hash, sig);
+        require(msgSender == sender);
+
+        require(nonces[msgSender]++ == nonce);
+        require(address(this).call.value(msg.value)(data));
+        msgSender = address(0);
+    }
+    
+}
+----

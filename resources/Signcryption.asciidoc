@@ -1,0 +1,21 @@
+= Signcryption (Crypto Secret Box)
+
+https://en.wikipedia.org/wiki/Signcryption[Signcryption]
+
+https://en.wikipedia.org/wiki/SHA-3[SHA-3 Keccak]
+
+
+https://godoc.org/golang.org/x/crypto/nacl/box[NACL Box Signcryption]
+
+https://github.com/DavidHuie/signcryption[go signcryption]
+
+
+https://saltpack.org/signcryption-format[Saltpack Binary Signcryption Format]
+
+
+https://github.com/msgpack/msgpack/blob/master/spec.md[MessagePack specification]
+
+http://nacl.cr.yp.to/secretbox.html[Secret-key authenticated encryption: crypto_secretbox]
+
+
+https://github.com/keybase/client/blob/master/go/chat/signencrypt[signcrypt in go]

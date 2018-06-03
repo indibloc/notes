@@ -1,0 +1,50 @@
+= Solidity Notes
+
+We need to separate the contract logic from ledger ;)
+
+http://solidity.readthedocs.io[Solidity Docs]
+
+https://etherscan.io/verifyContract[Verify Contract]
+
+https://medium.com/@alexsherbuck/two-ways-to-force-ether-into-a-contract-1543c1311c56
+
+
+https://ethereum.stackexchange.com/questions/17465/how-can-a-smart-contract-run-when-receiving-ether-directly-not-through-a-functi
+
+----
+pragma solidity ^0.4.0;
+contract bet{
+
+    uint256 public bet;
+
+    event received(string msg);
+
+    function () payable{
+
+        bet=msg.value;
+        received("bet received");
+
+    }
+
+
+}
+
+----
+
+ address(this).transfer(msg.value)
+
+
+----
+contract C1 {
+    uint public _n;  // public just for easy inspection in Solidity Browser
+
+    function foo(uint n) returns(uint) {
+        _n = n;
+        return _n;
+    }
+
+    function invoke(bytes4 methodId, uint n) returns(bool) {
+        return this.call(methodId, n);
+    }
+}
+----

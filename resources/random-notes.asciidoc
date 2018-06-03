@@ -1,0 +1,8 @@
+= Random Notes and Links
+
+
+https://bitshares.org/technology/delegated-proof-of-stake-consensus/[DPOS: Delegated Proof of Stake]
+
+https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md[EOS White paper]
+
+
