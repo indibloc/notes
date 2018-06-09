@@ -1,0 +1,7 @@
+= Bitcoin Consortium Permissioned Network
+
+https://en.bitcoin.it/wiki/Proof_of_Stake
+
+https://github.com/btcsuite
+
+

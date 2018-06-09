@@ -1,0 +1,8 @@
+== Banking Tech Notes
+
+
+https://www.bis.org/cpmi/info_pfmi.htm[Principles for Financial Market Infrastructures (PFMI)]
+
+https://www.iso20022.org[ISO20022: UNIFY]
+
+
