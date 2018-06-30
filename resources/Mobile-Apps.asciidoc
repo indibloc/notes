@@ -4,6 +4,12 @@ https://github.com/ethereum/go-ethereum/wiki/Mobile:-Introduction[Ethereum Mobil
 
 https://github.com/status-im
 
+.Sailfish
+
+https://sailfishos.org
+
+https://github.com/sailfishos
+
 .Toshi
 
 https://www.toshi.org[Toshi]
@@ -16,4 +22,7 @@ https://github.com/district0x/ethlance-toshi[github: Toshi SOFA App]
 
 https://dappradar.com/[Curated List of DApps]
 
+.Others
+
+https://zippie.org
 
