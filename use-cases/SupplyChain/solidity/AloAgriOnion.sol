@@ -12,7 +12,7 @@ pragma solidity ^0.4.24;
  * @author Ashish Banerjee (ashish@qzip.in)
  * @notice Ricardian Smart Contract (annonymized)
  * @dev  Assummes that buyer and sellers are not part of blockchain network.
- * version v02 - 01-July-2018
+ * version v03 - 02-July-2018
  * 
  * This version assumes that the buyer and seller both do not have Key pair.
  * for these entities annonymous id are used.
@@ -38,6 +38,9 @@ pragma solidity ^0.4.24;
  * [Arbitration Deadlocked]
  * [Court Refred]
  * [Court Ordered]
+ *
+ * 02-jul-18: changed event parameters to exclude passing struct, as solc was generatin Tuple type. 
+ *            Tuple type is unsupported by abigen in Version: 1.8.6-stable.
  */
  
 contract AloAgriOnion {
@@ -71,7 +74,11 @@ contract AloAgriOnion {
     event EvtContractStatusChanged (
         string  contractId,
         string  statusType,   // enum are not visible outside solidity
-        Status  status
+        uint tmstamp,
+        string docId,
+        string docmimeType,
+        bytes32 docHash,
+        address createdBy
     
     );
     
@@ -92,7 +99,9 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"Init", st); 
+       emit EvtContractStatusChanged (contractId,"Init", 
+       st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
        
        // set next allowed states
        resetNextStates();
@@ -135,7 +144,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"Record", st);
+       emit EvtContractStatusChanged (contractId,"Record",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       );
    }
    function buyerAccepted(string docId, string docmimeType, bytes32 docHash) 
         public onlyCreator {
@@ -154,7 +164,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"BuyerAccepted", st);      
+       emit EvtContractStatusChanged (contractId,"BuyerAccepted",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       );      
        
       // set next allowed states
        resetNextStates();
@@ -180,7 +191,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"SellerAccepted", st); 
+       emit EvtContractStatusChanged (contractId,"SellerAccepted",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.BuyerAccepted)] = true;   
@@ -225,7 +237,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"AriratorApproved", st);  
+       emit EvtContractStatusChanged (contractId,"AriratorApproved",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       );  
        
        
        resetNextStates();
@@ -250,7 +263,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"EscrowCreated", st); 
+       emit EvtContractStatusChanged (contractId,"EscrowCreated",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Shipped)] = true;   
@@ -275,7 +289,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"Shipped", st); 
+       emit EvtContractStatusChanged (contractId,"Shipped",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Delivered)] = true;   
@@ -301,7 +316,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"Delivered", st); 
+       emit EvtContractStatusChanged (contractId,"Delivered", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -326,7 +342,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"BuyerAcknowledged", st); 
+       emit EvtContractStatusChanged (contractId,"BuyerAcknowledged",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -350,7 +367,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"DisputeTimeout", st); 
+       emit EvtContractStatusChanged (contractId,"DisputeTimeout", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -374,7 +392,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"EscrowReleased", st); 
+       emit EvtContractStatusChanged (contractId,"EscrowReleased", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   // audits or exceptions
@@ -400,7 +419,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"BuyerDisputed", st); 
+       emit EvtContractStatusChanged (contractId,"BuyerDisputed",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       );
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -424,7 +444,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"AritrationStarted", st); 
+       emit EvtContractStatusChanged (contractId,"AritrationStarted", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -449,7 +470,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"AritrationResolved", st); 
+       emit EvtContractStatusChanged (contractId,"AritrationResolved", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -473,7 +495,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"AritrationDeadlocked", st); 
+       emit EvtContractStatusChanged (contractId,"AritrationDeadlocked",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -497,7 +520,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"CourtReferred", st); 
+       emit EvtContractStatusChanged (contractId,"CourtReferred",  st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       );
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -521,7 +545,8 @@ contract AloAgriOnion {
         
         status.push(st);
         
-       emit EvtContractStatusChanged (contractId,"CourtOrdered", st); 
+       emit EvtContractStatusChanged (contractId,"CourtOrdered", st.tmstamp, st.docId, st.docmimeType, st.docHash, st.createdBy       
+       ); 
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
@@ -559,4 +584,3 @@ contract AloAgriOnion {
         }
     }
 } 
-
