@@ -12,11 +12,13 @@ pragma solidity ^0.4.24;
  * @author Ashish Banerjee (ashish@qzip.in)
  * @notice Ricardian Smart Contract (annonymized)
  * @dev  Assummes that buyer and sellers are not part of blockchain network.
- * version v03 - 02-July-2018
+ * version v04 - 24-July-2018
  * 
  * This version assumes that the buyer and seller both do not have Key pair.
  * for these entities annonymous id are used.
- 
+ *
+ * Arbitrator is added only in case of dispute.
+ *
  * Sample: https://docs.google.com/document/d/1v9GJkyrCBV7Mzs9vngeosGyhMHb3KSYc6Wgcx5o7zSI/edit
  * 
  *** Events **
@@ -25,7 +27,6 @@ pragma solidity ^0.4.24;
  * [Start Escrow] --> create contract
  * [Buyer Accepted] 
  * [Seller Accepted]
- * [Arbitrator Approved]
  * [Escrow created]
  * [shipped]
  * [delivered]
@@ -33,6 +34,7 @@ pragma solidity ^0.4.24;
  * [Escrow Released]
  * 
  * [Buyer Disputed]
+ * [Arbitrator Approved]
  * [Aritration Started]
  * [Aritration Resolved]
  * [Arbitration Deadlocked]
@@ -41,14 +43,15 @@ pragma solidity ^0.4.24;
  *
  * 02-jul-18: changed event parameters to exclude passing struct, as solc was generatin Tuple type. 
  *            Tuple type is unsupported by abigen in Version: 1.8.6-stable.
+ * 24-July-2018:  Arbitrator is added only in case of dispute
  */
  
 contract AloAgriOnion {
     
     enum States {
-        Init, BuyerAccepted, SellerAccepted, AriratorApproved, EscrowCreated,
+        Init, BuyerAccepted, SellerAccepted, EscrowCreated,
         Shipped, Delivered, BuyerAcknowledged, DisputeTimeout, EscrowReleased,
-        BuyerDisputed, AritrationStarted, AritrationResolved, AritrationDeadlocked,
+        BuyerDisputed, AriratorApproved, AritrationStarted, AritrationResolved, AritrationDeadlocked,
         CourtReferred, CourtOrdered  , Record, END
     }
     
@@ -199,7 +202,7 @@ contract AloAgriOnion {
        resetNextStates();
        nextStates[uint(States.BuyerAccepted)] = true;   
        nextStates[uint(States.Record)] = true;   
-       nextStates[uint(States.AriratorApproved)] = true; 
+       nextStates[uint(States.EscrowCreated)] = true; 
        
    }    
    
@@ -212,21 +215,11 @@ contract AloAgriOnion {
     }
     function approved(string docId, string docmimeType, bytes32 docHash) 
         public onlyArbitrator {
-        uint ndx = status.length-1;
-        uint8 accepted =0;
-        for(; ndx > 0 ; ndx-- ) {
-            if(status[ndx].state == States.BuyerAccepted ||
-               status[ndx].state == States.SellerAccepted)
-               accepted++;
-            else if(!(status[ndx].state == States.Record)) 
-                break;
-             
-        }     
+ 
         require( 
-           accepted == 2 &&
            nextStates[uint(States.AriratorApproved)]
            ,
-           "Invalid state, should be after Seller & Buyer both Accepted"
+           "Invalid state, should be after SellerDisputed"
         );
  
         Status memory st;
@@ -244,7 +237,7 @@ contract AloAgriOnion {
        
        
        resetNextStates();
-       nextStates[uint(States.EscrowCreated)] = true; 
+       nextStates[uint(States.AritrationStarted)] = true; 
        nextStates[uint(States.Record)] = true;   
        
    }    
@@ -426,14 +419,14 @@ contract AloAgriOnion {
          // set next allowed states
        resetNextStates();
        nextStates[uint(States.Record)] = true;   
-       nextStates[uint(States.AritrationStarted)] = true; 
+       nextStates[uint(States.AriratorApproved)] = true; 
 
    }    
    function aritrationStarted(string docId, string docmimeType, bytes32 docHash)
             public onlyArbitrator {
         require( 
           nextStates[uint(States.AritrationStarted)],
-           "Invalid state, should be after Buyer disputes"
+           "Invalid state, should be after Buyer disputes & Arbitrator approved"
         );
  
         Status memory st;
@@ -588,3 +581,4 @@ contract AloAgriOnion {
         }
     }
 } 
+
