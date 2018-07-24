@@ -8,15 +8,9 @@ pragma solidity ^0.4.24;
 import "./MktBase.sol";
 
 /** @title B2B Maketplace Catalog 
- *  version v02 - 03-June-2018
+ *  version v03 - 03-Jul-2018
  */
 
-/*
-
-	bytes32 
-	`title_i18n_id`	TEXT,
-	`note_i18n_id`	TEXT,
-*/
  
 contract MktCatalog is MktBase {
 
@@ -38,10 +32,12 @@ contract MktCatalog is MktBase {
         Status  status;
         GeoTag geoTag;
         address addedBy;
-        ProdSpecAttr[] prodSpecAttr;
+       // ProdSpecAttr[] prodSpecAttr;
         bytes32[] bundled;  // bundled product/service is a compund product.
+         mapping(bytes32 => ProdSpecAttr[] ) prodSpecAttr;
         bool exists;
     }
+   
     event EvtProdSpecStatus(
        bytes32 indexed id,
        string indexed urn,
@@ -54,7 +50,7 @@ contract MktCatalog is MktBase {
     mapping(uint => OpenOffer) public offers;
     mapping(uint => RequestForQuote) public rfq;
     
-    constructor(bytes pgpCert,  uint ownfee, uint admfee) public MktBase(pgpCert,ownfee, admfee)  {
+    constructor( uint ownfee, uint admfee) public MktBase(ownfee, admfee)  {
         
     }
     /*
@@ -65,7 +61,7 @@ contract MktCatalog is MktBase {
             bytes casAddress, string mimeType, CASTypes casType, int lat, int long   
             ) public  onlyAdmin returns (bytes32 catalogId) {
         
-        catalogId = keccak256(prodSpecUrn);
+        catalogId = keccak256(abi.encodePacked(prodSpecUrn));
         require(!catalog[catalogId].exists, "Product Specs already exists");
         
         bytes32 titileI18n = addI18n(defaultLang, title); 
@@ -80,7 +76,7 @@ contract MktCatalog is MktBase {
         cas.mimeType = mimeType;
         cas.casType = casType; 
         
-        ProdSpec prodSpec;
+        ProdSpec memory prodSpec;
         
         prodSpec.prodSpecUrn = prodSpecUrn;
         prodSpec.geoTag = gtag;
@@ -95,6 +91,19 @@ contract MktCatalog is MktBase {
         catalog[catalogId] = prodSpec;   
         emit EvtProdSpecStatus(catalogId, prodSpec.prodSpecUrn, prodSpec.status );
         return;
+    }
+    function addProductSpecAttr(bytes32 prodHsh, string attrTaxonomyUrn, string langCode, string text  ) public  onlyAdmin returns (bytes32 attrId) {
+        require(catalog[prodHsh].exists, "Product Specs does NOT exists");
+         bytes32 i18nId = addI18n(langCode,text);
+        attrId = keccak256(abi.encodePacked(attrTaxonomyUrn)); 
+         ProdSpecAttr memory psAttr ;
+         psAttr.attrTaxonomyUrn = attrTaxonomyUrn ;
+         psAttr.i18nId = i18nId ;
+         
+         catalog[prodHsh].prodSpecAttr[attrId].push(psAttr);
+         
+         return;
+        
     }
     function bundle(bytes32 parent, bytes32 child) public  onlyAdmin {
         require(
@@ -194,4 +203,5 @@ contract MktCatalog is MktBase {
         }
     }
 }
+
 

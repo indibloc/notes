@@ -81,7 +81,7 @@ contract AloAgriOnion {
         address createdBy
     
     );
-    
+
     constructor(string contract_id, string  buyer,  string  seller,
                 string contractMimeType, bytes32 contract_Hash 
                ) public {
@@ -117,7 +117,9 @@ contract AloAgriOnion {
         );
         _;  // function content being modified is placed here
     }
-    
+    function version() public pure returns (uint) {
+       return 1;
+    }   
    function addArbitrator(address who) public onlyCreator {
         arbitrator = who;
        
@@ -563,7 +565,9 @@ contract AloAgriOnion {
         uri = status[0].docmimeType;
         return ;
     }
-    
+    function statusCount() public view  returns (uint) {
+      return status.length;
+    }
     function prevState(States st) internal view returns (bool ok) {
         uint i = skipRecords();
         ok = ( i < status.length && status[i].state == st )? true: false;

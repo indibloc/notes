@@ -8,7 +8,7 @@ pragma solidity ^0.4.24;
 //pragma experimental ABIEncoderV2;
 
 /** @title B2B Maketplace Base 
- *  version v02 - 03-June-2018
+ *  version v03 - 03-Jul-2018
  */
  
  interface OpenOffer {
@@ -52,11 +52,12 @@ contract MktBase {
     struct Participant {
         string partyID; // short  unique id
         address partyAddress;
-        bytes partyOpenPGPCertificate;
         Status status;
         bool exists;  // there is no way to check if mapping element exists
-        Roles[] roles;
+        //Roles[] roles;
+        mapping(uint => bool) roles;
     }
+    
     struct ContentAddressedStore {
         bytes casAddress;
         string mimeType;
@@ -73,22 +74,25 @@ contract MktBase {
         uint    endrosementCharge;
         uint    disputeResolutionCharge;
         ContentAddressedStore terms;
-        bool withdrawn;
+        bool endrosed;
     }
     event EvtEndrosed(bytes32 recardianId, address arbitrator);
     event EvtEndroserWithdrawn(bytes32 recardianId, address arbitrator, address by);
     
     struct RicardianContractTemplate {
+        bytes32 id;
         string mime;
         string uri;
         Status status;
         bool exists;  // there is no way to check if mapping element exists
         uint usageFee;
         address feeSplitContract;
-        ArbitrationCharge[] endrosers;
+       // ArbitrationCharge[] endrosers;
+       mapping(address => ArbitrationCharge) endrosers;
         address redFlag;  // only Regulator can raise flag
         address admin;
     }
+    mapping(bytes32 => mapping(address => ArbitrationCharge)) endrosements;
     event EvtRicardianStatus(
         bytes32 indexed id,
         string uri,
@@ -98,16 +102,14 @@ contract MktBase {
     mapping(address => bool) public admins;
     mapping(bytes32 => RicardianContractTemplate) public  recardians;
     
-    bytes   public creatorOpenPGPCertificate;
     address creator;
     
     // i18n Code/Id => lang code => text 
     mapping(bytes32 => mapping(bytes32 => string)) public i18nDict;
 
     
-    constructor(bytes pgpCert, uint ownfee, uint admfee) public {
+    constructor( uint ownfee, uint admfee) public {
         creator = msg.sender; 
-        creatorOpenPGPCertificate = pgpCert;
         ownerFee = ownfee;
         adminFee = admfee ;
     }
@@ -156,13 +158,16 @@ contract MktBase {
     function addRicardian (
         string uri, string mime, uint usageFee, address feeSplitContract 
         ) public onlyAdmin returns (bytes32 recardianId) {
-       recardianId = keccak256(uri);
+       recardianId = keccak256(bytes(uri));
        require(
            !recardians[recardianId].exists,
            "Ricardian exists"
            );
-        RicardianContractTemplate  ric;
+        RicardianContractTemplate memory ric ;
+      
+        //uint[] memory a = new uint[](7);
         ric.uri = uri;
+        ric.mime = mime;
         ric.exists = true;
         ric.status = Status.Init;
         ric.admin = msg.sender;
@@ -205,33 +210,24 @@ contract MktBase {
         require(hasRole(msg.sender, Roles.Arbitrator), "Not an Arbitrator");
         
         bool hasEndrosed = false;
-      // = recardians[recardianId].endrosers;
-        for(uint i=0; i < recardians[recardianId].endrosers.length; i++) {
-            if(recardians[recardianId].endrosers[i].arbitrator == msg.sender) {
-                hasEndrosed = true;
-                recardians[recardianId].endrosers[i].currency = currency;
-                recardians[recardianId].endrosers[i].withdrawn = false;
-                recardians[recardianId].endrosers[i].endrosementCharge = endrosementCharge;
-                recardians[recardianId].endrosers[i].disputeResolutionCharge = disputeResolutionCharge;
-                
-                recardians[recardianId].endrosers[i].terms.casAddress = termsCasAddr;
-                recardians[recardianId].endrosers[i].terms.mimeType = termsMime;
-                recardians[recardianId].endrosers[i].terms.casType = termsCasType;
-            }
-        }
+
+      hasEndrosed = (recardians[recardianId].endrosers[msg.sender].endrosed)? true:false;
+
+
         if(!hasEndrosed) {
              ArbitrationCharge memory arbit;
-
-                arbit.currency = currency;
-                arbit.withdrawn = false;
-                arbit.endrosementCharge = endrosementCharge;
-                arbit.disputeResolutionCharge = disputeResolutionCharge;
-                
-                arbit.terms.casAddress = termsCasAddr;
-                arbit.terms.mimeType = termsMime;
-                arbit.terms.casType = termsCasType;     
-                recardians[recardianId].endrosers.push(arbit);
+             recardians[recardianId].endrosers[msg.sender] = arbit;
         }
+        
+        recardians[recardianId].endrosers[msg.sender].currency = currency;
+        recardians[recardianId].endrosers[msg.sender].endrosed = true;
+        recardians[recardianId].endrosers[msg.sender].endrosementCharge = endrosementCharge;
+        recardians[recardianId].endrosers[msg.sender].disputeResolutionCharge = disputeResolutionCharge;
+        
+        recardians[recardianId].endrosers[msg.sender].terms.casAddress = termsCasAddr;
+        recardians[recardianId].endrosers[msg.sender].terms.mimeType = termsMime;
+        recardians[recardianId].endrosers[msg.sender].terms.casType = termsCasType;    
+        
         // distrbute fees
         recardians[recardianId].admin.transfer(adminFee);
         recardians[recardianId].feeSplitContract.transfer(recardians[recardianId].usageFee);
@@ -241,21 +237,14 @@ contract MktBase {
          require(recardians[recardianId].exists, "Ricardian Does not exist");
          require(hasRole(msg.sender, Roles.Arbitrator), "Not an Arbitrator");
          // find the endroser
-       for(uint i=0; i < recardians[recardianId].endrosers.length; i++) {
-            if(recardians[recardianId].endrosers[i].arbitrator == msg.sender) 
-                recardians[recardianId].endrosers[i].withdrawn = true;
-               
-        }       
+       recardians[recardianId].endrosers[msg.sender].endrosed = false;   
         emit EvtEndroserWithdrawn(recardianId, msg.sender, msg.sender);
     
     }
     function withdrawEndroser(bytes32 recardianId, address erdroser) public onlyAdmin {
         require(recardians[recardianId].exists, "Ricardian Does not exist");
-       for(uint i=0; i < recardians[recardianId].endrosers.length; i++) {
-            if(recardians[recardianId].endrosers[i].arbitrator == erdroser) 
-                recardians[recardianId].endrosers[i].withdrawn = true;
-               
-        }     
+        if(recardians[recardianId].endrosers[msg.sender].endrosed)
+            recardians[recardianId].endrosers[msg.sender].endrosed = false;
         emit EvtEndroserWithdrawn(recardianId, erdroser, msg.sender);
     }
     
@@ -269,9 +258,7 @@ contract MktBase {
     function addParty(
         string partyID, // short  unique id
         address partyAddress,
-        bytes partyOpenPGPCertificate,
-        Status status,
-        Roles defaultRole
+        Status status
     ) public onlyAdmin {
         require (
             ! parties[partyAddress].exists,
@@ -281,11 +268,8 @@ contract MktBase {
         Participant memory party ;
         party.partyID = partyID;
         party.partyAddress = partyAddress;
-        party.partyOpenPGPCertificate = partyOpenPGPCertificate;
         party.status = status;
         party.exists = true;
-        party.roles = new  Roles[](1);
-        party.roles[0] = defaultRole;
         
         parties[partyAddress] = party;
     
@@ -296,28 +280,24 @@ contract MktBase {
             parties[partyAddress].exists,
             "Party does not exists"
             );      
-             parties[partyAddress].roles.push(role);
+            parties[partyAddress].roles[uint(role)] = true;
     }
-    function hasRole(address partyAddress, Roles role )   returns (bool ok) {
+    function hasRole(address partyAddress, Roles role )  view public returns (bool ok) {
         ok = false;
         if( parties[partyAddress].exists) {
-            if(parties[partyAddress].roles.length > 0) {
-                for(uint i=0; i < parties[partyAddress].roles.length; i++)
-                  if(parties[partyAddress].roles[i] == role) {
-                      ok = true;
-                      break;
-                  }
-                     
-            }
+           ok =  parties[partyAddress].roles[uint(role)];
+            
         }
         return ;
     }
     
-    function addI18n(string langcode, string text) public  onlyAdmin returns (bytes32 catalogId) {
-       bytes32 lid = keccak256(langcode);
-       catalogId = keccak256(lid, text ); 
-       i18nDict[catalogId][lid] = text;
+    function addI18n(string langcode, string text) public  onlyAdmin returns (bytes32 catId) {
+       bytes32 lid = keccak256(bytes(langcode));
+
+        catId = keccak256(abi.encodePacked(lid, bytes(text) )); 
+       i18nDict[catId][lid] = text;
        return;
     }
 }
+
 
