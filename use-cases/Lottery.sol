@@ -21,7 +21,7 @@ pragma solidity ^0.4.24;
 contract Lottery {
     address public creator ;
     address[] public participants;
-    mapping(bytes32 => uint) public partyRegister; // zero == not present. 1 == Records[0]
+   // mapping(bytes32 => uint) public partyRegister; // zero == not present. 1 == Records[0]
     
     modifier onlyCreator() { // Modifier
         require(
@@ -63,13 +63,13 @@ contract Lottery {
        selfdestruct(creator);
    }
    function buyticket() public  payable fees {
-       address(this).transfer(ticketPrice);
        jackpot += (ticketPrice - adminFee);
+       participants.push(msg.sender);
    }
-   function getWinner() internal returns (address) {
-       bytes32 pseuorand = keccak256(creator) ;
+   function getWinner() internal view returns (address) {
+       bytes32 pseuorand = keccak256(abi.encodePacked(creator,now)) ;
        for(uint i=0; i < participants.length; i++ ) {
-           pseuorand = keccak256(pseuorand, participants );
+           pseuorand = keccak256(abi.encodePacked(pseuorand, participants ));
        }
        
        return participants[ uint256(pseuorand) % participants.length];

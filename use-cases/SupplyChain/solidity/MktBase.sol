@@ -228,7 +228,7 @@ contract MktBase {
         recardians[recardianId].endrosers[msg.sender].terms.mimeType = termsMime;
         recardians[recardianId].endrosers[msg.sender].terms.casType = termsCasType;    
         
-        // distrbute fees
+        // distrbute fees. TODO: review the transfer()
         recardians[recardianId].admin.transfer(adminFee);
         recardians[recardianId].feeSplitContract.transfer(recardians[recardianId].usageFee);
         emit EvtEndrosed(recardianId, msg.sender);

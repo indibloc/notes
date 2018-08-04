@@ -188,7 +188,7 @@ contract MktCatalog is MktBase {
         bytes32 tmplId = offer.getContractTemplateId();
         require(recardians[tmplId].exists, "ricardian Template must exist");
         
-        // distrbute fees
+        // distrbute fees TODO: review the transfer() logic
         recardians[tmplId].admin.transfer(adminFee);
         recardians[tmplId].feeSplitContract.transfer(recardians[tmplId].usageFee);
         rfq[rfqSeq] = offer;
