@@ -11,7 +11,7 @@ pragma solidity ^0.4.24;
  * @author Ashish Banerjee (ashish@qzip.in)
  * @notice Fair Play Lottery (No Warraties) 
  * @dev  Technology Demonstrator for Pseudo Random number.
- * version v01 - 03-aug-2018
+ * version v02 - 04-aug-2018
  *
  * NOTE: Many countries forbit online lotteries. Check the law of the land before deploying
  *       This is a Technology Demonstrator for  Pseudo Random number generator.
@@ -69,7 +69,7 @@ contract Lottery {
    function getWinner() internal view returns (address) {
        bytes32 pseuorand = keccak256(abi.encodePacked(creator,now)) ;
        for(uint i=0; i < participants.length; i++ ) {
-           pseuorand = keccak256(abi.encodePacked(pseuorand, participants ));
+           pseuorand = keccak256(abi.encodePacked(pseuorand, participants[i] ));
        }
        
        return participants[ uint256(pseuorand) % participants.length];

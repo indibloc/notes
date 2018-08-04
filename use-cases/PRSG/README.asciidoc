@@ -1,0 +1,5 @@
+= Pseudo Random Sequence Generation
+
+Experimental Pseudo Random Sequence Generation on Deterministic Virtual Machine.
+
+
