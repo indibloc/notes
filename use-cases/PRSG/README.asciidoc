@@ -3,3 +3,23 @@
 Experimental Pseudo Random Sequence Generation on Deterministic Virtual Machine.
 
 
+
+
+== Floor Lottery
+
+TxHash:
+
+0x2f17d9ea6c5e0eaa2402eff10032aeb5f591281f1e9706442af91a3b8bf423e4
+
+https://rinkeby.etherscan.io/tx/0x2f17d9ea6c5e0eaa2402eff10032aeb5f591281f1e9706442af91a3b8bf423e4
+
+Contract:
+0xc51a9C04F9747dA17562Dcf047a1Cd588778Dc44
+
+https://rinkeby.etherscan.io/address/0xc51a9c04f9747da17562dcf047a1cd588778dc44
+
+Buy Ticket txn:
+
+https://rinkeby.etherscan.io/tx/0xc6a47bf38351501b5d8f55b6ae6d92c53a07b315fb487956b806eee315c6d871
+
+

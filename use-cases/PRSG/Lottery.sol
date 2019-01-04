@@ -34,7 +34,7 @@ contract Lottery {
     uint public ticketPrice;
     uint public jackpot;
     event EvtJackPotWinner(
-        address winner,
+        address indexed winner,
         uint    prize
     );
     

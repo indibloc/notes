@@ -1,0 +1,41 @@
+= https://en.wikipedia.org/wiki/Trusted_execution_environment[Trusted Execution Environment]
+
+== Chips
+
+.ARM
+
+https://www.arm.com/products/silicon-ip-security[ARM Trustzones]
+
+https://www.arm.com/why-arm/technologies/trustzone-for-cortex-a[Cortex A]
+
+.Intel/AMD
+
+https://software.intel.com/en-us/sgx[Intel SGX (Software Guard Extensions )]
+
+https://github.com/ayeks/SGX-hardware[SGX enabled chips]
+
+https://ark.intel.com/Search/FeatureFilter?productType=processors&SoftwareGuardExtensions=Yes%20with%20Intel%C2%AE%20ME[Search for SGX enabled core processors]
+
+
+
+== OS and SDK
+
+https://source.android.com/security/trusty[Android Trusty]
+
+https://github.com/littlekernel/lk[Little Kernel used by Android Trusty as well as Fuchsia OS]
+
+
+https://en.wikipedia.org/wiki/Google_Fuchsia[Fuchsia OS]
+
+http://www.openvirtualization.org/open-source-arm-trustzone.html[Open Virtualization for ARM TrustZone]
+
+https://cloud.google.com/blog/products/gcp/introducing-asylo-an-open-source-framework-for-confidential-computing?hl=ko
+
+=== SoC running Andoid
+
+The official boards are expensive. We can consider Pi and Pine64, Rock64 and others.
+
+
+
+
+

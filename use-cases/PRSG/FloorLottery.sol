@@ -11,7 +11,7 @@ pragma solidity ^0.4.24;
  * @author Ashish Banerjee (ashish@qzip.in)
  * @notice Fair Play Lottery (No Warraties) with Floor Limit for the Jackpot
  * @dev  Technology Demonstrator for Pseudo Random number.
- * version v01 - 03-aug-2018
+ * version v02 - 06-aug-2018
  *
  * NOTE: Many countries forbit online lotteries. Check the law of the land before deploying
  *       This is a Technology Demonstrator for  Pseudo Random number generator.
@@ -19,6 +19,7 @@ pragma solidity ^0.4.24;
 */
 
 contract FloorLottery {
+    uint constant public version = 0x02;
     address public creator ;
     address[] public participants;
    // mapping(bytes32 => uint) public partyRegister; // zero == not present. 1 == Records[0]
@@ -89,5 +90,6 @@ contract FloorLottery {
            
        }
    }
+
 }
 
