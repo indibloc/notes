@@ -1,5 +1,7 @@
 = https://en.wikipedia.org/wiki/Trusted_execution_environment[Trusted Execution Environment]
 
+*TODO:* Install Android Trusty on Raspberry Pi or Pine64.
+
 == Chips
 
 .ARM
