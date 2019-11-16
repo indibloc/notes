@@ -9,8 +9,5 @@ If they reach a milestone, we will create a project in github. If the idea goes 
 
 If the idea gets to an alpha stage the documents are moved to the `wiki` pages of IndiBloc doc. 
 
-.Active List
-. OpnLance: New Age Gig Economy  
-. EthBzr: Ethereum & Swarm Based https://github.com/openbazaar[OpenBazaar]
-. OpnBnk : https://github.com/OpenBankProject[Open Banking] compliant Blockchain as a service for Fiat Wallets.
-
+. Active Ideas
+.https://github.com/hyperledger/transact/tree/master/libtransact/protos[Hyperledger Transact Protobuf] mixin with https://www.stellar.org/developers/guides/concepts/scp.html[Stellar Consensus] & https://github.com/perlin-network/life[Perlin Life]  
