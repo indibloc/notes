@@ -1,0 +1,12 @@
+= Mixing: Hyper Ledger Transact with Perlin Life & Stellar Consensus
+
+
+
+
+== Resources
+
+https://github.com/hyperledger/transact/tree/master/libtransact/protos[Transact Protocol Buffers]
+
+https://www.stellar.org/developers/guides/concepts/scp.html[Stellar Consensus]
+
+https://github.com/perlin-network/life[Perlin Life]
