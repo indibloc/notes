@@ -10,3 +10,5 @@ https://github.com/hyperledger/transact/tree/master/libtransact/protos[Transact 
 https://www.stellar.org/developers/guides/concepts/scp.html[Stellar Consensus]
 
 https://github.com/perlin-network/life[Perlin Life]
+
+https://sawtooth.hyperledger.org/docs/core/nightly/master/architecture/transactions_and_batches.html[Transaction Batches]
