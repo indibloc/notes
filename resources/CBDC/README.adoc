@@ -1,0 +1,16 @@
+= CBDC: Central Bank Digital Currencies
+
+
+
+== Resources
+
+https://www.bis.org/about/bisih/topics/cbdc/mcbdc_bridge.htm[BIS mbridge CBDC]
+
+"Project mBridge reached the minimum viable product (MVP) stage in mid-2024" -- last updated 11 Nov 2024
+
+https://medium.com/coinmonks/bis-exploring-ethereums-automated-market-makers-for-cross-border-payments-1d01f48b3672[Blog: BIS Exploring Ethereum’s Automated Market-Makers for Cross Border Payments]
+
+https://www.bis.org/publ/othp_mariana.pdf[pdf: CBDC BIS AMM report]
+
+
+
